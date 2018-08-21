@@ -56,6 +56,8 @@ if [ $OPT == "RM5" ]; then
     CONFIG=templates/RM5-AP-XW-PON-default.cfg
 elif [ $OPT == "NS5" ]; then
     CONFIG=templates/NS5-AP-XM-PON-default.cfg
+elif [ $OPT == "NBE" ]; then
+    CONFIG=templates/NBE-AP-XW-PON-default.cfg
 fi
 
 cp $CONFIG $CONFIG.bak
@@ -78,6 +80,7 @@ sed -i "s/^resolv.host.1.name=.*/resolv.host.1.name=$NAME/g" $CONFIG
 sed -i "s/^netconf.3.ip=.*/netconf.3.ip=$EXTENDER_NODE_IP_1/g" $CONFIG 
 sed -i "s/^wireless.1.ssid=.*/wireless.1.ssid=peoplesopen.net $LAST_3_OF_IP/g" $CONFIG 
 
+# Add model specific configs here, maybe
 #if [ $OPT == "RM5" ]; then
     #sed -i "s/^wpasupplicant.profile.1.network.1.ssid=.*/wpasupplicant.profile.1.network.1.ssid=peoplesopen.net $LAST_3_OF_IP/g" $CONFIG 
 #fi

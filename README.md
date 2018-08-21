@@ -26,13 +26,7 @@ Nanostation M5 - NS5
 Nanobeam M5 - NBE
 ```
 
-To test that config was successful, set network settings to: 
-```
-IP address - 100.65.254.9 
-Subnet mask - 255.255.255.192
-Gateway - 100.64.0.1
-```
-And try going to http://100.65.254.4 and logging in with default sudomesh username/pw.
+To test that config was successful, connect the extender node to port 2 on home node you intend to use it with and connect your computer to the peoplesopen SSID of your home node. Try pinging the extender node's IP address, which is the home node IP plus one (e.g. home node, 100.65.99.193, connects to extender node, 100.65.99.194). You can also try logging into AirOS by opening the extender node's IP address in a web browser.
 
 ## Notes
 It maybe be good to up/downgrade the firmware to pre-5.6, since that is compatible with OpenWrt and will be easier to change if we switch to sudowrt or LibreMesh. Here are download links,  
