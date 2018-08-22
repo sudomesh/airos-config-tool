@@ -1,10 +1,26 @@
 #!/bin/bash
 
+usage(){
+    echo 'Usage:'
+    echo '    ./config.sh <device-nickname>'
+    echo 'Device nicknames are as follows,'
+    echo '    Rocket M5 - RM5'
+    echo '    Nanobridge M5 - NB5'
+    echo '    Nanostation M5 - NS5'
+    echo '    Nanobeam M5 - NBE'
+}
+
+if [ -z $1 ]; then
+    echo 'No device nickname given'
+    usage
+    exit 1
+fi
+
 # if you get a diffie hellman error, you can use this key 
 KEY_ALGO=-oKexAlgorithms=+diffie-hellman-group1-sha1
 
 # Remove 192.168.1.20 from known hosts
-ssh-keygen -f "/home/paidforby/.ssh/known_hosts" -R 192.168.1.20
+ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.20
 
 # Try pinging the node
 PING_SUCCESS=0
@@ -58,6 +74,10 @@ elif [ $OPT == "NS5" ]; then
     CONFIG=templates/NS5-AP-XM-PON-default.cfg
 elif [ $OPT == "NBE" ]; then
     CONFIG=templates/NBE-AP-XW-PON-default.cfg
+else
+    echo 'Option not recognized'
+    usage
+    exit 1
 fi
 
 cp $CONFIG $CONFIG.bak
