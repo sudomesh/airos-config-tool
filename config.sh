@@ -1,5 +1,15 @@
 #!/bin/bash
 
+usage(){
+    echo 'Usage:'
+    echo '    ./config.sh <device-nickname>'
+    echo 'Device nicknames are as follows,'
+    echo '    Rocket M5 - RM5'
+    echo '    Nanobridge M5 - NB5'
+    echo '    Nanostation M5 - NS5'
+    echo '    Nanobeam M5 - NBE'
+}
+
 # if you get a diffie hellman error, you can use this key 
 KEY_ALGO=-oKexAlgorithms=+diffie-hellman-group1-sha1
 
@@ -58,6 +68,10 @@ elif [ $OPT == "NS5" ]; then
     CONFIG=templates/NS5-AP-XM-PON-default.cfg
 elif [ $OPT == "NBE" ]; then
     CONFIG=templates/NBE-AP-XW-PON-default.cfg
+else
+    echo 'Option not recognized or not provided'
+    usage
+    exit 1
 fi
 
 cp $CONFIG $CONFIG.bak
