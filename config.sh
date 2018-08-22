@@ -4,7 +4,7 @@
 KEY_ALGO=-oKexAlgorithms=+diffie-hellman-group1-sha1
 
 # Remove 192.168.1.20 from known hosts
-ssh-keygen -f "/home/paidforby/.ssh/known_hosts" -R 192.168.1.20
+ssh-keygen -f ~/.ssh/known_hosts -R 192.168.1.20
 
 # Try pinging the node
 PING_SUCCESS=0
