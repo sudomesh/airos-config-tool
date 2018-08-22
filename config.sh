@@ -10,6 +10,12 @@ usage(){
     echo '    Nanobeam M5 - NBE'
 }
 
+if [ -z $1 ]; then
+    echo 'No device nickname given'
+    usage
+    exit 1
+fi
+
 # if you get a diffie hellman error, you can use this key 
 KEY_ALGO=-oKexAlgorithms=+diffie-hellman-group1-sha1
 
@@ -69,7 +75,7 @@ elif [ $OPT == "NS5" ]; then
 elif [ $OPT == "NBE" ]; then
     CONFIG=templates/NBE-AP-XW-PON-default.cfg
 else
-    echo 'Option not recognized or not provided'
+    echo 'Option not recognized'
     usage
     exit 1
 fi
