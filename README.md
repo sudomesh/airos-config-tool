@@ -1,7 +1,12 @@
 # airos-config-tool
-peoplesopen configuration automater for AirOS
+This repo includes:
+- peoplesopen configuration automater for AirOS, `config.sh` (and potentially other related scripts)
+- Consolidated documentation for how we configure and use AirOS. Please prioritize this repo over the wiki, so we can keep documentation close to related code.
 
-Note: we discourage people from putting more effort into this repo than neccessary, since it is highly dependent on closed hardware and proprietary firmware.
+We discourage people from putting more effort into this repo than neccessary, since it is highly dependent on closed hardware and proprietary firmware.
+
+This README provides brief instructions on using `config.sh`.
+For information about how we plan AirOS deployments, how to use the AirOS admin app, etc., see [our FAQ](guides/faq.md).
 
 ## Usage
 
